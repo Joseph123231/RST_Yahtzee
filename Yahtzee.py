@@ -28,6 +28,14 @@ start_menu = ("Start Menu",
 "Understanding scorecard [u]",
 "Quit [q]",
 "Start [s]")
+print("""
+ _       __     __                             __           __  __      __    __                
+| |     / /__  / /________  ____ ___  ___     / /_____      \\ \\/ /___ _/ /_  / /_____  ___  ___ 
+| | /| / / _ \\/ / ___/ __ \\/ __ `__ \\/ _ \\   / __/ __ \\      \\  / __ `/ __ \\/ __/_  / / _ \\/ _ \\
+| |/ |/ /  __/ / /__/ /_/ / / / / / /  __/  / /_/ /_/ /      / / /_/ / / / / /_  / /_/  __/  __/
+|__/|__/\\___/_/\\___/\\____/_/ /_/ /_/\\___/   \\__/\\____/      /_/\\__,_/_/ /_/\\__/ /___/\\___/\\___/
+""")
+
 while True:
     for x in start_menu:
         print(x)
@@ -60,7 +68,7 @@ while True:
         )
         for rule in yahtzee_rules:
             print(*rule)
-        ret = input("To return press R to start press S to quit press Q: ")
+        ret = input("\nTo return press R to start press S to quit press Q: ")
         if ret.lower() == "r":
             continue
         elif ret.lower() == "q":
@@ -69,12 +77,20 @@ while True:
         elif ret.lower() == "s":
             break
     elif all_input.lower() == "u":  # Need to Add understanding for lower section
-        score_under = ("\nOnes: After your three rolls you add up the amount of ones you rolled.",
-                   "Twos: After your three rolls you add up the number of twos you rolled.",
-                   "Threes: After your three rolls you add up the number of Threes you rolled.",
-                   "fours: After your three rolls you add up the number of fours you rolled.", 
-                   "fives: After your three rolls you add up the number of fives you rolled.",
-                   "sixes: After your three rolls you add up the number of sixes you rolled.\n",)
+        score_under = ("\nONES: After your three rolls you add up the amount of ones you rolled.",
+                   "TWOS: After your three rolls you add up the number of twos you rolled.",
+                   "THREES: After your three rolls you add up the number of Threes you rolled.",
+                   "FOURS: After your three rolls you add up the number of fours you rolled.", 
+                   "FIVES: After your three rolls you add up the number of fives you rolled.",
+                   "SIXES: After your three rolls you add up the number of sixes you rolled.",
+                   "BONUS: If your total points from the upper half is 63 or more then you will be given a bonus of 35 points at the end of the game.",
+                   "3 OF A KIND: Whenever you roll 3 dice that are the same and the other 2 dice can either be the same or different, your score is calculated by adding the value of all the dice you rolled.",
+                   "4 OF A KIND: Same as 3 of a kind except 4 dice must be the same and the scoring works the same as 3 of a kind.",
+                   "FULL HOUSE: Whenever you finish your turn and 3 dice faces are the same and the other 2 dice faces are different from the 3 but are also the same eg. [2,2,2,4,4].",
+                   "SMALL STRAIGHT: Whenever you finish your turn and the 4 of the dice go in ascending order and the 5th dice can be anything eg. [2,3,4,5,1], you will always get 30 points if you get a small straight.",
+                   "LARGE STRAIGHT: Whenever you finish your turn and all of your dice faces go in ascending order eg. [1,2,3,4,5,] or [2,3,4,5,6], you will always get 40 points if you get a large straight.",
+                   "YAHTZEE: If all of your dice are the same at the end of your turn, you will get 50 points always, if you get more then 1 yahtzee then you wil get an additional 100 bonus points for each. ",
+                   "CHANCE: If you don't want to score your points to any category you score it to chance and get the value of the dice faces added to your score")
         for under in score_under:
             print(under)
         ret = input("To return press R to start press S to quit press Q: ")
@@ -90,3 +106,4 @@ while True:
         quit()
     elif all_input.lower() == "s":
         break
+print("Ready to start!")
