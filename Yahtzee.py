@@ -44,6 +44,14 @@ while True:
         print("\nEmpty Scorecard\n")
         for key, value in yahtzee_scorecard.items():
             print(f"{key}: {value}")
+            ret = input("To return press R to start press S to quit press Q: ")
+        if ret.lower() == "r":
+            continue
+        elif ret.lower() == "q":
+            print("exiting")
+            quit()
+        elif ret.lower() == "s":
+            break
     elif all_input.lower() == "i": # once working use filehandling 
         instrustions = (" \nThe game consists of thirteen rounds and at the end of the thirteenth round then the game will end. (All the categories on the players’ score cards will be completely filled in at that point.)",
         "\nAt the start of a turn, the player takes all 5 dice and rolls them. They can then roll some or all of the dice up to two more times, setting aside any dice they’d like to keep and rerolling the rest. The dice can be scored after any of the rolls, but scoring the dice ends the player’s turn. Setting dice aside after one roll does not prevent one or more of them from being rolled again on any subsequent roll if the player so chooses.",
@@ -106,4 +114,15 @@ while True:
         quit()
     elif all_input.lower() == "s":
         break
-print("Ready to start!")
+#-----------------------------------game starts now------------------------
+num_die = 5 
+rolled_dice = []
+
+def roll():
+    for die in range(num_die):
+        rolled_dice.append(random.randint(1, 6))
+    print(f"you rolled {rolled_dice}.")
+    rolled_dice.sort()
+roll()
+
+print(rolled_dice)
