@@ -117,12 +117,42 @@ while True:
 #-----------------------------------game starts now------------------------
 num_die = 5 
 rolled_dice = []
-
+keeps = []
+new_rolled_dice = []
 def roll():
     for die in range(num_die):
         rolled_dice.append(random.randint(1, 6))
-    print(f"you rolled {rolled_dice}.")
+    print(f"You rolled {rolled_dice}.")
     rolled_dice.sort()
-roll()
+# Rolls a new dice based on the kept dice of  the previous roll
+def new_roll():
+    for die in range(5 - len(keeps)):
+        new_rolled_dice.append(random.randint(1, 6))
+    print(f"you rolled {new_rolled_dice}.")
+    new_rolled_dice.sort()
+#----------------------------- keeping function under-----------------
+def keep():
+    while True: 
+        mny = int(input("How many dice will you be keeping?: "))
+        if mny > 5 or mny < 1:
+            print("You must only keep 1-5 dices")
+            True
+        else:
+            break
+    while True:
+        for i in range(mny):
+            while True:
+                kept = int(input("Enter the die you want to keep: "))
+                if kept not in rolled_dice:
+                    print("The number you chose is not a valid number")
+                else:
+                    keeps.append(kept)
+                    break  
+        print(keeps)
 
-print(rolled_dice)
+# def keep_new_roll():
+
+
+roll()
+keep()
+new_roll()
